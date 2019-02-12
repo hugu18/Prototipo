@@ -37,17 +37,45 @@
             <ProgressBar
                 android:id="@+id/progressBar3"
                 style="@style/MyProgressBarRectangle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="32dp"
-                android:indeterminateDrawable="@drawable/progress"
+                android:indeterminateDrawable="@drawable/progress2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/loading_logo"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@android:color/background_light" />
+
+            <TextView
+                android:id="@+id/Bem-vindo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="32dp"
+                android:text="Bem-vindo"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
