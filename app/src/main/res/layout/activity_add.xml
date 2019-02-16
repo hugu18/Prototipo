@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:background="#000000"
+    tools:context=".AddActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="ID do Modulo"
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:backgroundTint = "#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:textColorHint="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/white"
+                android:backgroundTint = "#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <Spinner
+                android:id="@+id/types_spinner"
+                android:layout_width="match_parent"
+                android:layout_height = "40dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#ffffff"
+                android:layout_weight="0"></Spinner>
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Quantidade"
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:backgroundTint = "#FFFFFF"
+                android:layout_marginBottom="20dp"
+                android:textColorHint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/add_button"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Adicionar"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

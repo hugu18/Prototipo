@@ -4,4 +4,16 @@
     <string name="title_activity_loading">LoadingActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+    <string-array name="building_array">
+        <item>Categoria</item>
+        <item>Baterias e pilhas</item>
+        <item>Circuitos</item>
+        <item>Placas</item>
+        <item>Parafusos</item>
+        <item>Processadores</item>
+        <item>Ventoinhas</item>
+    </string-array>
+
 </resources>

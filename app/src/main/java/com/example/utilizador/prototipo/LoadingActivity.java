@@ -1,6 +1,9 @@
 package com.example.utilizador.prototipo;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import org.json.JSONObject;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -111,6 +116,7 @@ public class LoadingActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        new DummyLoginTask().execute();
     }
 
     @Override
@@ -164,5 +170,45 @@ public class LoadingActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    public class DummyLoginTask extends AsyncTask<Void, Void, String> {
+
+
+        DummyLoginTask() {
+
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            // TODO: attempt authentication against a network service.
+
+            try {
+              Thread.sleep(1000*5);
+            } catch (Exception e) {
+                return null;
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(final String result) {
+            Intent intent = new Intent(LoadingActivity.this, MainPageActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        @Override
+        protected void onCancelled() {
+            Intent intent = new Intent(LoadingActivity.this, MainPageActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }
