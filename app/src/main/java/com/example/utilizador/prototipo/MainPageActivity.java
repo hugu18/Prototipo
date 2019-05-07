@@ -1,18 +1,31 @@
 package com.example.utilizador.prototipo;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainPageActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
 
+    private boolean clicked = false;
+    View mOriginal;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.mymenu, menu);
@@ -42,6 +55,7 @@ public class MainPageActivity extends AppCompatActivity implements PopupMenu.OnM
         mThirdImage.setImageResource(R.drawable.placarede);
         mFourthImage.setImageResource(R.drawable.circuitos);
         mNewMode.setImageResource(R.drawable.processador);
+
     }
 
 
@@ -57,9 +71,39 @@ public class MainPageActivity extends AppCompatActivity implements PopupMenu.OnM
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.search) {
-            // do something here
+        clicked = !clicked;
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        if(clicked) {
+            bar.setCustomView(R.layout.actionbar_view);
+
+
+            EditText search = (EditText) bar.getCustomView().findViewById(
+                    R.id.searchfield);
+            search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+                @Override
+                public boolean onEditorAction(TextView v, int actionId,
+                                              KeyEvent event) {
+                    findViewById(R.id.mode2).setVisibility(View.GONE);
+                    findViewById(R.id.mode3).setVisibility(View.GONE);
+                    findViewById(R.id.mode4).setVisibility(View.GONE);
+                    return false;
+                }
+            });
+            search.requestFocus();
+            // Show soft keyboard for the user to enter the value.
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+            bar.setDisplayShowCustomEnabled(true);
+
+        }else{
+            findViewById(R.id.mode2).setVisibility(View.VISIBLE);
+            findViewById(R.id.mode3).setVisibility(View.VISIBLE);
+            findViewById(R.id.mode4).setVisibility(View.VISIBLE);
+            bar.setDisplayShowCustomEnabled(false);
+        }
+
         }else if(id == R.id.add){
             Intent intent = new Intent(MainPageActivity.this, AddActivity.class);
             startActivityForResult(intent,1);
